@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full h-screen justify-center items-center">
+    <div className="flex flex-col w-full h-screen justify-center items-center bg-blue-500 md:bg-red-500">
       <h1 className="mb-3">This is a next.js application starter with Hawa UI Kit</h1>
       <div className="flex flex-row gap-2">
         <Link href={"https://github.com/sikka-software/hawa"}>

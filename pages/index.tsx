@@ -15,7 +15,11 @@ export default function Home() {
         <Link href={"https://github.com/zaaakher/next.js-with-hawa"}>
           <Button variant={"outline"}>Source Code</Button>
         </Link>
+        <Link href={'/playground'}>
+          <Button variant={"outline"}>Playground</Button>
+        </Link>
       </div>
+
     </div>
   );
 }

@@ -5,6 +5,10 @@ import {
   Button,
   Checkbox,
   CodeBlock,
+  Switch,
+  // Toaster,
+} from "@sikka/hawa";
+import {
   Dialog,
   DialogContent,
   DialogTrigger,
@@ -12,11 +16,15 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@sikka/hawa";
+} from "@sikka/hawa/dialog";
 import Link from "next/link";
+import { Textarea } from "@sikka/hawa/textarea";
+import { Toaster } from "@sikka/hawa/toaster";
+import { useToast } from "@sikka/hawa/hooks";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { toast } = useToast();
   return (
     <div className="flex flex-col w-full h-screen p-4 bg-blue-300 md:bg-red-200">
       <Breadcrumb
@@ -30,6 +38,10 @@ export default function Home() {
       <div className="flex max-w-sm">
         <CodeBlock code="npm i @sikka/hawa" />
       </div>
+
+      <div>
+        <Switch />
+      </div>
       <div className="mt-4">
         <Checkbox
           id="deded"
@@ -37,6 +49,11 @@ export default function Home() {
           sublabel={"This is the sublabel"}
         />
       </div>
+      <Button onClick={() => toast({ title: "test" })}>Make Toast</Button>
+      <div className="bg-red-400">
+        <Toaster />
+      </div>
+      <Textarea placeholder="This is the placeholder" label={"testing label"} />
       <div className="mt-4">
         <Dialog>
           <DialogTrigger>

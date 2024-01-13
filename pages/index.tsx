@@ -1,17 +1,14 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { Button } from "@sikka/hawa";
+import { Button } from "@sikka/hawa/button";
 import Link from "next/link";
-import { Toast, ToastProvider } from "@sikka/hawa/toast";
 import { useToast } from "@sikka/hawa/hooks";
 import { Toaster } from "@sikka/hawa/toaster";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const { toast } = useToast();
+  const { toast, toasts } = useToast();
   return (
     <div className="flex flex-col w-full h-screen justify-center items-center bg-blue-500 md:bg-red-500">
-      <Toaster />
+      <Toaster toasts={toasts} />
+
       <h1 className="mb-3">
         This is a next.js application starter with Hawa UI Kit
       </h1>
@@ -35,9 +32,10 @@ export default function Home() {
           variant={"outline"}
           onClick={() => {
             toast({
-              title: "test",
+              title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
+              description: "Friday, February 10, 2023 at 5:57 PM",
+              severity: "warning",
             });
-            // console.log("making toast");
           }}
         >
           Toast
